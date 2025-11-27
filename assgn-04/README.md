@@ -2,7 +2,7 @@
 
 ## Problem A
 
-**Problem Link:** [Codeforces – Problem F](https://ioi.contest.codeforces.com/group/32KGsXgiKA/contest/103702/problem/F)
+**Problem Link:** [Codeforces – Problem C](https://ioi.contest.codeforces.com/group/32KGsXgiKA/contest/103752/problem/C)
 
 `problem1.cpp` – Accepted solution
 
@@ -10,6 +10,6 @@
 
 ## Problem B
 
-**Problem Link:** [Codeforces – Problem C](https://ioi.contest.codeforces.com/group/32KGsXgiKA/contest/103752/problem/C)
+**Problem Link:** [Codeforces – Problem F](https://ioi.contest.codeforces.com/group/32KGsXgiKA/contest/103702/problem/F)
 
 `problem2.cpp` – Accepted solution
