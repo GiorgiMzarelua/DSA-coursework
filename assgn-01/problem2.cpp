@@ -1,31 +1,40 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
 
 int nums[60005], n, minPrime;
-long long dp[60005];
+long long int dp[60005];
+
+void eratos(){
+for(int i = 2; i <= 60000; i++){
+if(nums[i] == 0){
+for(int j = i * 2; j <= 60000; j += i){
+nums[j] = 1;
+}
+}
+}
+}
+
+int SUM(int n){
+eratos();
+minPrime = n + 1;
+while(nums[minPrime] != 0) minPrime++;
+for(int prime = 2; prime <= n; prime++){
+if(nums[prime] == 0){
+for(int i = prime; i <= n; i++){
+dp[i] = dp[i] + dp[i - prime];
+dp[i] = dp[i] % minPrime;
+}
+}
+}
+return dp[n];
+}
 
 int main() {
     cin >> n;
-    memset(nums, 0, sizeof(nums));
-    nums[0] = nums[1] = 1;
-    
-    for (int i = 2; i*i <= 60000; i++)
-        if (!nums[i])
-            for (int j = i*i; j <= 60000; j += i)
-                nums[j] = 1;
-
-    minPrime = n + 1;
-    while (nums[minPrime]) minPrime++;
-
+    nums[0] = 1;
+    nums[1] = 1;
     dp[0] = 1;
-    for (int p = 2; p <= n; p++) {
-        if (!nums[p]) {
-            for (int i = p; i <= n; i++) {
-                dp[i] = (dp[i] + dp[i-p]) % minPrime;
-            }
-        }
-    }
-
-    if (nums[n]) cout << dp[n] << endl;
-    else cout << (dp[n] + minPrime - 1) % minPrime << endl;
+int ans = SUM(n);
+if(nums[n] == 1) cout << ans % minPrime << endl;
+else cout << (ans + minPrime - 1) % minPrime << endl;
 }
